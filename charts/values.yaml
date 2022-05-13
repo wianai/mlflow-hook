@@ -1,0 +1,30 @@
+# Default values for mlflow-hook.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+
+image:
+  repository: gcr.io/hellomlops-tests/mlflow-hook
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: v2
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+config:
+  MLFLOW_TRACKING_URI: http://mlflow-service.mlflow.svc.cluster.local:5000
+  MLFLOW_MODEL_NAME: Iris
+  MLFLOW_STAGE: Production
+  MLFLOW_DEPLOY_NAME: mlflow
+  DEPLOY_NAMESPACE: default

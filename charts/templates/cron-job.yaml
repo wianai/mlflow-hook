@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: {{ include "mlflow-hook.fullname" . }}
+  labels:
+    {{- include "mlflow-hook.labels" . | nindent 4 }}
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: {{ include "mlflow-hook.serviceAccountName" . }}
+          containers:
+          - name: {{ .Chart.Name }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+            imagePullPolicy: {{ .Values.image.pullPolicy }}
+            env:
+            - name: MLFLOW_TRACKING_URI
+              value: http://mlflow-service.mlflow.svc.cluster.local:5000
+            - name: MLFLOW_MODEL_NAME
+              value: Iris
+            - name: MLFLOW_STAGE
+              value: Production
+            - name: MLFLOW_DEPLOY_NAME
+              value: mlflow
+            - name: DEPLOY_NAMESPACE
+              value: default
+          restartPolicy: Never
