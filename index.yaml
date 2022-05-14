@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  mlflow-hook:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-05-14T19:07:14.626745902Z"
+    description: A Helm chart for Kubernetes
+    digest: 65cfd5c89e9e89f42b88141b7b3d0982248628220822ca4728a259ceacbc61df
+    name: mlflow-hook
+    type: application
+    urls:
+    - https://github.com/HelloMLOps/mlflow-hook/releases/download/mlflow-hook-0.1.0/mlflow-hook-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-05-14T19:07:14.626751802Z"
