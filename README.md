@@ -54,9 +54,9 @@ Before starting :checkered_flag:, you need to have [Helm](https://helm.sh/docs/h
 
 ```bash
 
-$ helm repo add HelloMLOps https://hellomlops.github.io/hello-mlflow/
+$ helm repo add mlflow-hook https://hellomlops.github.io/mlflow-hook/
 
-$ helm install hello-mlflow HelloMLOps/mlflow-hook
+$ helm install mlflow-hook mlflow-hook/mlflow-hook
 
 ```
 
