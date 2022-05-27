@@ -17,13 +17,13 @@ spec:
             imagePullPolicy: {{ .Values.image.pullPolicy }}
             env:
             - name: MLFLOW_TRACKING_URI
-              value: http://mlflow-service.mlflow.svc.cluster.local:5000
+              value: "{{ .Values.config.MLFLOW_TRACKING_URI }}"
             - name: MLFLOW_MODEL_NAME
-              value: Iris
+              value: "{{ .Values.config.MLFLOW_MODEL_NAME }}"
             - name: MLFLOW_STAGE
-              value: Production
+              value: "{{ .Values.config.MLFLOW_STAGE }}"
             - name: MLFLOW_DEPLOY_NAME
-              value: mlflow
+              value: "{{ .Values.config.MLFLOW_DEPLOY_NAME }}"
             - name: DEPLOY_NAMESPACE
-              value: default
+              value: "{{ .Values.config.DEPLOY_NAMESPACE }}"
           restartPolicy: Never
