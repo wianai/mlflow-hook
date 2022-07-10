@@ -65,10 +65,9 @@ $ helm install mlflow-hook mlflow-hook/mlflow-hook
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
-| config.MLFLOW_TRACKING_URI | string | `"http://mlflow-service.mlflow.svc.cluster.local:5000"` | Mlflow URI |
-| config.MLFLOW_STAGE | string | `"Production"` | Stage To be Tracked From Mlflow  |
-| config.DEPLOY_NAMESPACE | string | `"default"` | Model Namespace |
-| config.MLFLOW_DEPLOY_NAME| string | `""` | Seldon Model Name |
+| mlflow.MLFLOW_TRACKING_URI | string | `"http://mlflow-service.mlflow.svc.cluster.local:5000"` | Mlflow URI |
+| mlflow.stage | string | `"Production"` | Stage To be Tracked From Mlflow  |
+| mlflow.namespace | string | `"default"` | Namespace model to be deployed |
 
 
 ## :airplane: To Deploy New Version With Mlflow ##
